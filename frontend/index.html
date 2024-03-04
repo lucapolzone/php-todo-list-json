@@ -37,7 +37,7 @@
         <!-- TASKS -->
         <li v-for="task in tasks" class="list-group-item d-flex justify-content-between">
           <div>
-            <input class="form-check-input me-1" type="checkbox" id="checkbox">
+            <input class="form-check-input me-1" type="checkbox" id="checkbox" @click="toggleTask(task, index)">
             <label class="form-check-label ms-2" :class="task.done ? 'text-decoration-line-through' : ''" for="checkbox" id="checkbox-label">{{ task.text }}</label>
           </div>
           <button class="btn-close "></button>
