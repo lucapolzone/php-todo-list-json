@@ -31,6 +31,21 @@ const app = createApp({
       this.axiosChangeTask(data)
     },
 
+    deleteTask(index){
+      const data = { index };
+      axios
+        // POST
+        .post(this.endpoint + 'delete-task.php', data,
+          //questa riga è specifica di axios POST
+          {headers: { 'Content-Type': 'multipart/form-data' }}
+        )
+        .then((result) => {
+          //'tasks' riceve i dati ottenuti dalla richiesta
+          this.tasks = result.data;
+        })
+
+    },
+
     //funzione che fa la chiamata axios per modificare task
     axiosChangeTask(data) {
         axios
